@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="MMT\Product\Api\CustomRecentlyViewedProductInterface" type="MMT\Product\Model\Api\CustomRecentlyViewedProduct" />
+	<preference for="MMT\Product\Api\CustomComparedProductInterface" type="MMT\Product\Model\Api\CustomComparedProduct" />
+	<preference for="MMT\Product\Api\Data\CustomCategoryManagementInterface" type="MMT\Product\Model\CustomCategory" />
+	<preference for="MMT\Product\Api\CustomCategoryInterface" type="MMT\Product\Model\Api\CustomCategory" />
+	<preference for="MMT\Product\Api\CustomBestSellerInterface" type="MMT\Product\Model\Api\CustomBestSeller" />
+	<preference for="Magento\ConfigurableProduct\Helper\Product\Options\Loader" type="MMT\Product\Helper\Product\Options\Loader" />
+	<preference for="MMT\Product\Api\Data\CustomProductManagementInterface" type="MMT\Product\Model\CustomProduct" />
+	<preference for="MMT\Product\Api\CustomProductInterface" type="MMT\Product\Model\Api\CustomProduct" />
+	<preference for="MMT\Product\Api\HomeSliderInterface" type="MMT\Product\Model\Api\HomeSlider"/>
+	<preference for="MMT\Product\Api\Data\CustomProductSearchResultsInterface" type="MMT\Product\Model\CustomProductSearchResults"/>
+	<preference for="Magento\Catalog\Model\Category\Tree" type="MMT\Product\Model\Category\Tree"/>
+	<preference for="MMT\Product\Api\CustomRatingAndReviewInterface" type="MMT\Product\Model\Api\CustomRatingAndReview"/>
+	<preference for="MMT\Product\Api\CustomLayerNavigationInterface" type="MMT\Product\Model\Api\CustomLayerNavigation"/>
+	<preference for="MMT\Product\Api\Data\ReviewManagementSearchResultsInterface" type="MMT\Product\Model\ReviewManagementSearchResults"/>
+	<preference for="MMT\Product\Api\Data\ReviewManagementInterface" type="MMT\Product\Model\ReviewManagement"/>
+	<preference for="MMT\Product\Api\Data\CustomKeyValInterface" type="MMT\Product\Model\CustomKeyVal"/>
+	<preference for="Magento\Catalog\Model\Layer\Category" type="MMT\Product\Model\Layer\Category"/>
+    <preference for="MMT\Product\Api\Data\CustomerDownloadableProductManagementInterface" type="MMT\Product\Model\CustomerDownloadableProductManagement"/>
+	<preference for="MMT\Product\Api\Data\DownloadableProductSearchResultInterface" type="MMT\Product\Model\DownloadableProductSearchResults"/>
+	<preference for="MMT\Product\Api\CustomerDownloadableProductInterface" type="MMT\Product\Model\Api\CustomerDownloadableProduct"/>
+	<preference for="MMT\Product\Api\Data\GroupProductInterface" type="MMT\Product\Model\GroupProduct"/>
+	<preference for="MMT\Product\Api\Data\DiscountLabelInterface" type="MMT\Product\Model\DiscountLabel"/>
+	<preference for="MMT\Product\Api\Data\SizeChartInterface" type="MMT\Product\Model\SizeChartData"/>
+	<preference for="MMT\Product\Api\Data\FreeShippingInterface" type="MMT\Product\Model\FreeShipping"/>
+	<preference for="MMT\Product\Api\Data\ProductAttributesInterface" type="MMT\Product\Model\ProductAttributes"/>
+	<preference for="MMT\Product\Api\Data\StatusShowInterface" type="MMT\Product\Model\StatusShow"/>
+	<type name="Magento\Catalog\Api\Data\ProductInterface">
+		<plugin name="add_size_chart_and_free_shipping_product_and_product_attributes_api" type="MMT\Product\Plugin\ProductAttributesLoad" sortOrder="10" disabled="false"/>
+	</type>
+	<preference for="MMT\Product\Api\CustomNewProductInterface" type="MMT\Product\Model\Api\CustomNewProduct"/>
+	<preference for="MMT\Product\Api\ProductApiInterface" type="MMT\Product\Model\Api\ProductApi"/>
+	<preference for="MMT\Product\Api\Data\ProductInterface" type="MMT\Product\Model\Product"/>
+	<preference for="MMT\Product\Api\Data\ProductResultListInterface" type="MMT\Product\Model\ProductResultList"/>
+	<preference for="MMT\Product\Api\Data\SimpleProductInterface" type="MMT\Product\Model\SimpleProduct"/>
+	<preference for="MMT\Product\Api\CustomProductByAttrInterface" type="MMT\Product\Model\Api\CustomProductByAttr"/>
+	<preference for="MMT\Product\Api\WebsiteInterface" type="MMT\Product\Model\Api\Website"/>
+	<preference for="MMT\Product\Api\Data\WebsiteDataInterface" type="MMT\Product\Model\WebsiteData"/>
+	<preference for="MMT\Product\Api\Data\CustomGroupDataInterface" type="MMT\Product\Model\CustomGroupData"/>
+	<preference for="MMT\Product\Api\Data\CustomStoreDataInterface" type="MMT\Product\Model\CustomStoreData"/>
+	<preference for="MMT\Product\Api\Data\CustomWebsiteDataInterface" type="MMT\Product\Model\CustomWebsiteData"/>
+</config>
+
+

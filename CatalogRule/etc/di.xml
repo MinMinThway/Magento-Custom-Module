@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Magento\CatalogRule\Controller\Adminhtml\Promo\Catalog\Save" type="MMT\CatalogRule\Controller\Adminhtml\Promo\Catalog\Save" />
+    <preference for="Magento\CatalogRule\Controller\Adminhtml\Promo\Catalog\Delete" type="MMT\CatalogRule\Controller\Adminhtml\Promo\Catalog\Delete" />
+	    <virtualType name="MMTImgUploader" type="MMT\CatalogRule\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="const">MMT\CatalogRule\Model\ImageUploader::IMAGE_TMP_PATH</argument>
+            <argument name="basePath" xsi:type="const">MMT\CatalogRule\Model\ImageUploader::IMAGE_PATH</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="MMT\CatalogRule\Controller\Adminhtml\Promo\Catalog\Upload">
+        <arguments>
+            <argument name="uploader" xsi:type="object">MMTImgUploader</argument>
+        </arguments>
+    </type>
+    <preference for="Magento\CatalogRule\Model\Rule\DataProvider" type="MMT\CatalogRule\Model\Rule\DataProvider"/>
+    <preference for="Magento\CatalogRule\Api\Data\RuleInterface" type="MMT\CatalogRule\Api\Data\RuleInterface" />
+    <preference for="Magento\CatalogRule\Model\Rule" type="MMT\CatalogRule\Model\Rule" />
+</config>

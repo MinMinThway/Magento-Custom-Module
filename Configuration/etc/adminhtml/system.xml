@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mobile_version" translate="label">
+            <label>Mobile Version</label>
+        </tab>
+        <section id="mit_configuration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>General</label>
+            <tab>mobile_version</tab>
+            <resource>MMT_MobileConfiguration::configuration</resource>
+            <!-- Mobile  -->
+            <group id="mobile_version_general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mobile Version Configuration</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable or disable the configuration</comment>
+                </field>
+                <!-- Force Update -->
+                <field id="force_update_version" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Force Update Version </label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>This Force Update Version field is disabled by default, but will be enabled when enabled is set to "Yes".</comment>
+                </field>
+                <!-- Force Update Message-->
+                <field id="force_update_message" translate="label" type="textarea" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Force Update Message </label>   
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>               
+                </field>
+                <!-- Notification -->
+                <field id="notification_version" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notification Version</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>This Notification Version field is disabled by default, but will be enabled when enabled is set to "Yes".</comment>
+                </field>
+                <!-- Notification Message -->
+                <field id="notification_message" translate="label" type="textarea" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notification Message</label>     
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>                
+                </field>
+                <!-- Up to date Message -->
+                <field id="other_message" translate="label" type="textarea" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Other Message</label> 
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>                    
+                </field>
+            </group>
+            <!-- Store Info -->
+            <group id="store_info_general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Store Info Configuration </label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable or disable the configuration</comment>
+                </field>
+                <!-- Phone Number -->
+                <field id="store_info_phone_number" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store's Phone Number</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>This Store's Phone Number field is disabled by default, but will be Enabled when enabled is set to "Yes".</comment>
+                </field>
+                <!-- Address -->
+                <field id="store_info_address" translate="label" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store's Address</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>This Store's Address field is disabled by default, but will be enabled when Enabled is set to "Yes".</comment>
+                </field>
+                <!-- Mail -->
+                <field id="store_info_mail" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store's Mail</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>validate-email</validate>
+                    <comment>This Store's Mail field is disabled by default, but will be enabled when Enabled is set to "Yes".</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MMT\Checkout\Api\Data\CheckoutResultInterface" type="MMT\Checkout\Model\CheckoutResult" />
+    <preference for="MMT\Checkout\Api\PaymentInformationInterface" type="MMT\Checkout\Model\Api\PaymentInformationManagement" />
+    <preference for="MMT\Checkout\Api\GuestPaymentInformationInterface" type="MMT\Checkout\Model\Api\GuestPaymentInformationManagement" />
+    <preference for="Magento\Checkout\Controller\Cart\UpdateItemQty" type="MMT\Checkout\Controller\Cart\UpdateItemQty"/>
+    <preference for="Magento\Checkout\Model\Cart" type="MMT\Checkout\Model\Cart"/>
+    <preference for="MMT\Checkout\Api\Data\CustomShippingAndPaymentMethodInterface" type="MMT\Checkout\Model\CustomShippingAndPaymentMethod" />
+    <preference for="MMT\Checkout\Api\ShipingAndPaymentInterface" type="MMT\Checkout\Model\Api\ShipingAndPayment" />
+    <preference for="MMT\Checkout\Api\Data\ShippingAndBillingAddressInterface" type="MMT\Checkout\Model\ShippingAndBillingAddress" />
+    <preference for="MMT\Checkout\Api\Data\ShippingCarrierInterface" type="MMT\Checkout\Model\ShippingCarrier" />
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="remove-telephone-tooltip" type="MMT\Checkout\Plugin\LayoutProcessorPlugin" />
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\AttributeMerger">
+        <plugin name="validate_checkout_phone_number"
+                type="MMT\Checkout\Plugin\PhonePlugin" sortOrder="10"/>
+    </type>
+</config>

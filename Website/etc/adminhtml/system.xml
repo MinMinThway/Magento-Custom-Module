@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="web" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>Web</label>
+			<tab>general</tab>
+			<resource>Magento_Config::web</resource>
+			<group id="image_options" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>image_options</label>
+				<field id="image" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="6" showInDefault="1" showInWebsite="1" >
+            		<label>Upload image</label>
+					<backend_model>MMT\Website\Model\Config\Backend\CustomFileType</backend_model>
+            		<upload_dir config="system" scope_info="1">websites_images</upload_dir>
+        		</field>
+			</group>
+		</section>
+	</system>
+</config>

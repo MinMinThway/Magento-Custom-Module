@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="mass_confirmation_customer">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure to confirm account for selected customers?</message>
+                        <title translate="true">Confirm selected Customers' account</title>
+                    </confirm>
+                    <url path="customerdata/account/confirm"/>
+                    <type>mass_confirmation_customer</type>
+                    <label translate="true">Confirm Account</label>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>

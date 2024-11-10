@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Magento\Sales\Model\Order\Address\Validator" type="MMT\Customer\Model\Order\Address\Validator"/>
+	<preference for="Magento\Quote\Model\Quote\Address\Validator" type="MMT\Customer\Model\Quote\Address\Validator"/>
+	<preference for="Magento\Ui\DataProvider\EavValidationRules" type="MMT\Customer\DataProvider\EavValidationRules"/>
+	<preference for="Magento\Sales\Model\Order\Email\SenderBuilder" type="MMT\Customer\Model\Order\Email\SenderBuilder"/>
+	<preference for="Magento\Customer\Model\EmailNotification" type="MMT\Customer\Model\CustomerEmailNotification"/>
+	<preference for="Magento\Customer\Model\CustomerExtractor" type="MMT\Customer\Model\CustomerExtractor"/>
+	<preference for="Magento\Customer\Controller\Account\LoginPost" type="MMT\Customer\Controller\Account\LoginPost"/>
+	<preference for="Magento\Customer\Controller\Account\ForgotPasswordPost" type="MMT\Customer\Controller\Account\ForgotPasswordPost"/>
+	<preference for="Magento\Sales\Controller\Adminhtml\Order\Email" type="MMT\Customer\Controller\Adminhtml\Order\Email"/>
+	<preference for="Magento\Sales\Block\Adminhtml\Order\Create\Form\Account" type="MMT\Customer\Block\Adminhtml\Order\Create\Form\Account"/>
+	<preference for="Magento\Sales\Block\Adminhtml\Order\View" type="MMT\Customer\Block\Adminhtml\Order\View"/>
+	<preference for="Magento\Framework\Data\Form\Element\Text" type="MMT\Customer\Data\Form\Element\Text"/>
+	<preference for="MMT\Customer\Api\CustomerCaptchaInterface" type="MMT\Customer\Model\Api\CustomerCaptcha"/>
+	<preference for="MMT\Customer\Api\Data\CustomCaptchaInterface" type="MMT\Customer\Model\CustomCaptcha"/>
+	<preference for="MMT\Customer\Api\CustomAccountManagementInterface" type="MMT\Customer\Model\Api\CustomAccountManagement"/>
+	<preference for="MMT\Customer\Api\Data\AccountConfigInterface" type="MMT\Customer\Model\AccountConfig"/>
+	<preference for="Magento\Customer\Controller\Account\EditPost" type="MMT\Customer\Controller\Account\EditPost"/>
+	<!-- <preference for="Magento\Customer\Block\Widget\Name" type="MMT\Customer\Block\Widget\Name" /> -->
+	<preference for="MMT\Customer\Api\Data\CustomerAccountInterface" type="MMT\Customer\Model\CustomerAccount" />
+	<preference for="MMT\Customer\Api\Data\ProfilePictureInterface" type="MMT\Customer\Model\ProfilePicture"/>
+	<type name="Magento\Sales\Block\Adminhtml\Order\View">
+		<plugin name="MMT_Customer_Plugin_Magento_Sales_Block_Adminhtml_Order_View" type="MMT\Customer\Plugin\Block\Adminhtml\Order\View"/>
+	</type>
+	<type name="Magento\Customer\Model\AccountManagement">
+		<plugin name="MMT_Customer_Plugin_Magento_Customer_Model_AccountManagement" type="MMT\Customer\Plugin\Magento\Customer\Model\AccountManagement" sortOrder="10" disabled="false"/>
+	</type>
+	<type name="Magento\Integration\Model\CustomerTokenService">
+		<plugin name="MMT_Customer_Plugin_Magento_Integration_Model_CustomerTokenService" type="MMT\Customer\Plugin\Magento\Integration\Model\CustomerTokenService" sortOrder="10" disabled="false"/>
+	</type>
+	<type name="Magento\Customer\Model\Address\AbstractAddress">
+		<plugin name="MMT_Customer_Plugin_Magento_Customer_Model_Address_AbstractAddress" type="MMT\Customer\Plugin\Magento\Customer\Model\Address\AbstractAddress" sortOrder="10" disabled="false"/>
+	</type>
+	<type name="Magento\Customer\Api\CustomerRepositoryInterface">
+		<plugin name="MMT_Customer_Plugin_Magento_Customer_Api_CustomerRepositoryInterface" type="MMT\Customer\Plugin\Magento\Customer\Api\CustomerRepositoryInterface" sortOrder="10" disabled="false"/>
+	</type>
+</config>
+

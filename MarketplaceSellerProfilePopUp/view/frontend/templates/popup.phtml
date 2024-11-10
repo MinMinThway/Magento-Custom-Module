@@ -1,0 +1,169 @@
+<div id="homepage-popup-checkdevice" class="homepage-popup-checkdevice" style="display: none;">
+    <div class="custom-pop-check-device" style="display:none;">
+
+        <div class="pop-up-direct-app" style="display:none;">
+
+            <?php
+            $popupUrl = $block->getPopupUrl(); // Get the JSON string
+            $data = json_decode($popupUrl, true); // Decode the JSON string into an associative array
+            $urlForSeller = $data['url'];
+            ?>
+
+            <p class="title"><b>View In App?</b></p>
+            <p class="content">
+                This web page is trying to take you to the app. Are you sure you want to open it?
+            </p>
+
+            <div class="row">
+                <div class="cancel">
+                    <a id="close-popup-modal" class="popup-close-btn" data-role="closeBtn">Cancel</a>
+                </div>
+                <div class="open-app">
+                    <a type="button" class="pop-up-click" href="<?php echo $urlForSeller; ?>">Open app</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal-popup.modal-slide {
+        left: 0px;
+    }
+
+    .modal-content,
+    #modal-content-0 {
+        padding: 0;
+    }
+
+    .modal-inner-wrap {
+        background: transparent;
+    }
+
+    /* The below codes could be in theme.less */
+
+    .homepage-popup-checkdevice .custom-pop-check-device {
+        text-align: center;
+        width: 40%;
+        height: 100%;
+    }
+
+    .pop-up-direct-app {
+        background: white;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    @media (max-width: 767px) {
+        .homepage-popup-checkdevice .custom-pop-check-device {
+            text-align: center;
+            width: 75%;
+            height: 100%;
+        }
+
+        .pop-up-direct-app {
+            background: white;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .homepage-popup-checkdevice .custom-pop-check-device {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pop-up-direct-app {
+            background: white;
+            width: 100%;
+        }
+    }
+
+    .pop-up-direct-app .row {
+        margin: 0.1px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid grey;
+    }
+
+    .pop-up-direct-app .row .cancel {
+        padding: 10px;
+        width: 50%;
+    }
+
+    .pop-up-direct-app .row .open-app {
+        padding: 10px;
+        width: 50%;
+        border-left: 1px solid grey;
+    }
+
+    .pop-up-direct-app .row a {
+        font-size: medium;
+        color: gray;
+    }
+
+    .pop-up-direct-app .title {
+        padding: 5px 5px 0px 5px;
+        font-size: x-large;
+    }
+
+    .pop-up-direct-app .content {
+        padding: 0 10px 0 10px;
+        font-size: large;
+    }
+
+    #homepage-popup-checkdevice {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal",
+        "domReady!"
+    ], function($, modal) {
+        let details = navigator.userAgent;
+        let regexp = /android|iphone|kindle|ipad/i;
+        let isMobileDevice = regexp.test(details);
+
+        if (isMobileDevice) {
+
+
+            $('.custom-pop-check-device').css('display', '');
+            $('.pop-up-direct-app').css('display', '');
+
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: false,
+                modalClass: "home-popup-checkdevice",
+                buttons: []
+            };
+
+            var popup = modal(options, $('#homepage-popup-checkdevice'));
+            $('#homepage-popup-checkdevice').modal('openModal');
+
+            $('.modal-header').hide();
+            $("#close-popup-modal").click(function() {
+                var popup = modal(options, $('#homepage-popup-checkdevice'));
+                $('#homepage-popup-checkdevice').modal('closeModal');
+            });
+
+        } else {
+            $('.pop-up-direct-app').css('display', 'none');
+            var popup = modal(options, $('#homepage-popup-checkdevice'));
+            $('#homepage-popup-checkdevice').modal('closeModal');
+        }
+    });
+</script>

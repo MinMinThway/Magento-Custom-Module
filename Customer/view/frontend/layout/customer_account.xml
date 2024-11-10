@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--remove billing aggrement tab-->
+        <referenceBlock name="customer-account-navigation-billing-agreements-link" remove="true"/>
+        <!--remove stored payment method tab-->
+        <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
+    </body>
+</page>

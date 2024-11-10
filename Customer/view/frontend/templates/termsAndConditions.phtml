@@ -1,0 +1,23 @@
+<div class="form-group checkbox choice tcagreecreateaccount">
+    <label><input type="checkbox" id="tcagreecreateaccount" name="terms_conditions" data-validate="{'validate-terms-conditions': true}" title="Terms And Conditions" value="1" class="checkbox">
+    <?= __('I agree to NEO\'s %1 Terms & Conditions %2', '<a href="' . $block->getTermsAndConditionsUrl() . '">', '</a>') ?>
+    </label>
+    <div id="custom-tandc-error"></div>
+</div>
+<script>
+    require([
+        "jquery",
+        "mage/mage"
+    ], function($) {
+        var dataForm = $('#form-validate');
+        dataForm.mage('validation', {
+            errorPlacement: function(error, element) {
+                if (element.is('#tcagreecreateaccount')) {
+                    error.appendTo('#custom-tandc-error');
+                } else {
+                    element.after(error);
+                }
+            },
+        });
+    });
+</script>

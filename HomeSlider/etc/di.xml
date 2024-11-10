@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MMT\HomeSlider\Api\HomeSliderRepositoryInterface" type="MMT\HomeSlider\Model\HomeSliderRepository"/>
+    <preference for="MMT\HomeSlider\Api\Data\HomeSliderInterface" type="MMT\HomeSlider\Model\HomeSlider"/>
+    <preference for="MMT\HomeSlider\Api\Data\HomeSliderSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <type name="MMT\HomeSlider\Model\ResourceModel\HomeSlider\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mit_homeslider_homeslider</argument>
+            <argument name="eventPrefix" xsi:type="string">mit_homeslider_homeslider_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">mit_homeslider_homeslider_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MMT\HomeSlider\Model\ResourceModel\HomeSlider</argument>
+        </arguments>
+    </type>
+    <virtualType name="HomeSliderImageUploader" type="MMT\HomeSlider\Model\Uploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="const">MMT\HomeSlider\Model\Uploader::IMAGE_TMP_PATH</argument>
+            <argument name="basePath" xsi:type="const">MMT\HomeSlider\Model\Uploader::IMAGE_PATH</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MMT\MyGrid\Collection\Model\ResourceModel\ImageGrid\Collection\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mit_homeslider_homeslider</argument>
+            <argument name="resourceModel" xsi:type="string">MMT\HomeSlider\Model\ResourceModel\HomeSlider\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mit_homeslider_homeslider_listing_data_source" xsi:type="string">MMT\HomeSlider\Model\ResourceModel\HomeSlider\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MMT\HomeSlider\Model\UploaderPool">
+        <arguments>
+            <argument name="uploaders" xsi:type="array">
+                <item name="home_slider_image" xsi:type="string">HomeSliderImageUploader</item>
+                <item name="home_slider_image_mobile" xsi:type="string">HomeSliderImageUploader</item>
+                <item name="home_slider_image_mobile_app" xsi:type="string">HomeSliderImageUploader</item>
+                <item name="banner_image" xsi:type="string">HomeSliderImageUploader</item>
+
+            </argument>
+        </arguments>
+    </type>
+    <type name="MMT\HomeSlider\Controller\Adminhtml\HomeSlider\Upload">
+        <arguments>
+            <argument name="uploader" xsi:type="object">HomeSliderImageUploader</argument>
+        </arguments>
+    </type>
+    <type name="MMT\HomeSlider\Ui\Component\Listing\Column\ImagePreview">
+        <arguments>
+            <argument name="imageModel" xsi:type="object">HomeSliderImageUploader</argument>
+        </arguments>
+    </type>
+    <!--    <type name="MMT\HomeSlider\Api\HomeSliderRepositoryInterface">-->
+    <!--        <plugin name="Plugin_MMT_HomeSlider_Api_HomeSliderRepositoryInterface" type="MMT\HomeSlider\Plugin\HomeSliderGenerate" sortOrder="10" disabled="false"/>-->
+    <!--    </type>-->
+</config>
